@@ -25,11 +25,22 @@ import java.util.List;
  */
 public class PascalsTriangleII {
 
+    public static void main(String[] args) {
+        PascalsTriangleII pascalsTriangleII = new PascalsTriangleII();
+        List<Integer> list = pascalsTriangleII.getRow2(5);
+        list.forEach(li -> System.out.print(li));
+    }
+
     /**
      * 1、没想到是先处理行尾，
      * 2、没想到是倒着修改值，
      *
-     * 因为每一行的dp[i]是取决于上一行的 j 位置和 j-1 位置，如果不倒着更新，在下一个j+1位置的时候，计算的 j -1 已经被改过了，就错了。
+     * 因为每一行的dp[i]是取决于上一行的 j 位置和 j-1 位置，如果不倒着更新，在下一个j+1位置的时候，计算的 j - 1 已经被改过了，就错了。
+     * 1        0
+     * 11       1
+     * 121      2
+     * 1331     3
+     * 14641    4
      */
     public List<Integer> getRow2(int rowIndex) {
         List<Integer> list = new ArrayList<>(rowIndex + 1);
